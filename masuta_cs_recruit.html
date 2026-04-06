@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>마스타자동차 | CS 교육강사 채용</title>
+<meta property="og:title" content="마스타자동차 | CS 교육강사 채용">
+<meta property="og:description" content="전국 1,500개 가맹점 마스타자동차 고객센터 CS 교육강사 모집. 서울 서초구 | 파견직 | 잡앤커리어">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Pretendard:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafafa;
+    --white: #ffffff;
+    --dark: #1a1a2e;
+    --primary: #e85d26;
+    --primary-dim: rgba(232,93,38,0.07);
+    --primary-border: rgba(232,93,38,0.18);
+    --secondary: #2563eb;
+    --secondary-dim: rgba(37,99,235,0.06);
+    --secondary-border: rgba(37,99,235,0.15);
+    --border: #ebebeb;
+    --text: #1a1a2e;
+    --muted: #888;
+    --light-text: #555;
+    --warm: #fff8f5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+
+  /* TOP BAR */
+  .topbar {
+    background: var(--dark);
+    padding: 10px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .topbar-brand { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700; color: var(--white); letter-spacing: 1px; }
+  .topbar-brand span { color: var(--primary); }
+  .topbar-right { font-family: 'DM Sans', sans-serif; font-size: 10px; color: rgba(255,255,255,0.35); letter-spacing: 2px; text-transform: uppercase; }
+
+  /* HERO */
+  .hero {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 0 0;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--primary) 0%, #ff8c5a 50%, var(--primary) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  @keyframes shimmer { 0%,100%{background-position:0% 0%;} 50%{background-position:100% 0%;} }
+
+  .hero-inner { max-width: 720px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+
+  .hero-offer {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--primary); background: var(--primary-dim);
+    border: 1px solid var(--primary-border);
+    padding: 5px 14px; border-radius: 2px; margin-bottom: 20px;
+    opacity: 0; animation: fadeUp 0.5s ease 0.1s forwards;
+  }
+  .offer-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--primary); animation: blink 1.5s infinite; }
+  @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+  .hero-company {
+    font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600;
+    color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 12px;
+    opacity: 0; animation: fadeUp 0.5s ease 0.2s forwards;
+  }
+
+  .hero h1 {
+    font-size: clamp(26px, 5vw, 42px); font-weight: 900;
+    color: var(--dark); line-height: 1.2; letter-spacing: -1.5px;
+    margin-bottom: 10px;
+    opacity: 0; animation: fadeUp 0.5s ease 0.3s forwards;
+  }
+  .hero h1 em { font-style: normal; color: var(--primary); }
+
+  .hero-sub {
+    font-size: 14px; color: var(--light-text); line-height: 1.9; margin-bottom: 28px;
+    opacity: 0; animation: fadeUp 0.5s ease 0.4s forwards;
+  }
+
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px;
+    opacity: 0; animation: fadeUp 0.5s ease 0.5s forwards;
+  }
+  .htag {
+    font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600;
+    padding: 5px 14px; border-radius: 100px;
+    border: 1px solid var(--border); color: var(--muted); background: var(--bg);
+    transition: all 0.2s; cursor: default;
+  }
+  .htag:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+  .htag.primary { background: var(--primary); color: white; border-color: var(--primary); }
+  .htag.outline { border-color: var(--primary-border); color: var(--primary); background: var(--primary-dim); }
+
+  /* HERO STATS */
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--border); margin: 0 -32px;
+    opacity: 0; animation: fadeUp 0.5s ease 0.6s forwards;
+  }
+  .hstat {
+    padding: 24px 20px; border-right: 1px solid var(--border);
+    text-align: center; transition: background 0.2s; cursor: default;
+  }
+  .hstat:hover { background: var(--warm); }
+  .hstat:last-child { border-right: none; }
+  .hstat-num {
+    font-family: 'DM Sans', sans-serif; font-size: 26px; font-weight: 700;
+    color: var(--dark); line-height: 1; margin-bottom: 5px;
+  }
+  .hstat-num .a { color: var(--primary); }
+  .hstat-label { font-family: 'DM Sans', sans-serif; font-size: 11px; color: var(--muted); }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(14px);} to{opacity:1;transform:translateY(0);} }
+
+  /* CONTAINER */
+  .container { max-width: 720px; margin: 0 auto; padding: 0 20px 80px; }
+
+  /* SECTION */
+  .section {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 8px; padding: 32px; margin-top: 12px;
+    transition: border-color 0.25s, box-shadow 0.25s, opacity 0.6s ease, transform 0.6s ease;
+  }
+  .section:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.06); border-color: #ddd; }
+  .section.reveal { opacity: 0; transform: translateY(20px); }
+  .section.reveal.visible { opacity: 1; transform: translateY(0); }
+
+  .sec-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border);
+  }
+  .sec-num {
+    font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700;
+    color: var(--primary); background: var(--primary-dim);
+    border: 1px solid var(--primary-border); padding: 3px 8px; border-radius: 4px;
+  }
+  .sec-title { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700; color: var(--dark); letter-spacing: 1px; text-transform: uppercase; }
+
+  /* ABOUT */
+  .about-text { font-size: 14px; color: var(--light-text); line-height: 2; margin-bottom: 20px; }
+  .about-text strong { color: var(--text); }
+
+  .stats-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .stat {
+    background: var(--warm); border: 1px solid var(--primary-border);
+    border-radius: 8px; padding: 18px 16px; text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s; cursor: default;
+  }
+  .stat:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(232,93,38,0.1); }
+  .stat-num { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 700; color: var(--primary); line-height: 1; margin-bottom: 5px; }
+  .stat-label { font-family: 'DM Sans', sans-serif; font-size: 11px; color: var(--muted); }
+
+  /* INFO TABLE */
+  .info-table { width: 100%; border-collapse: collapse; }
+  .info-table tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+  .info-table tr:hover { background: var(--warm); }
+  .info-table tr:last-child { border-bottom: none; }
+  .info-table td { padding: 13px 4px; font-size: 13px; vertical-align: top; }
+  .info-table td:first-child { width: 90px; font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: 0.5px; text-transform: uppercase; }
+  .info-table td:last-child { color: var(--text); }
+
+  /* ROLE CARDS */
+  .role-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .role-card {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px; overflow: hidden; position: relative;
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s; cursor: default;
+  }
+  .role-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--primary); transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .role-card:hover { border-color: var(--primary-border); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(232,93,38,0.08); }
+  .role-card:hover::before { transform: scaleX(1); }
+  .role-icon {
+    font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700;
+    color: var(--primary); background: var(--primary-dim);
+    border: 1px solid var(--primary-border);
+    padding: 3px 10px; border-radius: 4px; display: inline-block; margin-bottom: 12px;
+    letter-spacing: 1px; text-transform: uppercase;
+  }
+  .role-card h4 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .role-card p { font-size: 12px; color: var(--muted); line-height: 1.7; }
+
+  /* REQUIREMENTS */
+  .req-box { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
+  .req-box ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .req-box ul li {
+    font-size: 13px; color: var(--light-text);
+    display: flex; gap: 10px; align-items: flex-start; line-height: 1.6;
+    padding: 10px 14px; background: var(--white);
+    border: 1px solid var(--border); border-radius: 6px;
+    transition: border-color 0.2s, transform 0.2s; cursor: default;
+  }
+  .req-box ul li:hover { border-color: var(--primary-border); transform: translateX(4px); }
+  .req-box ul li::before { content: '✓'; color: var(--primary); font-weight: 700; font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+
+  /* NEXT */
+  .next-wrap { background: var(--warm); border: 1px solid var(--primary-border); border-radius: 8px; padding: 20px; font-size: 13px; color: var(--light-text); }
+  .next-wrap strong { color: var(--text); }
+  .next-item { display: flex; gap: 12px; align-items: flex-start; margin-top: 10px; }
+  .next-num { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 700; background: var(--primary); color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+
+  /* APPLY */
+  .apply-section {
+    background: var(--dark); border-radius: 8px; padding: 40px 32px; margin-top: 12px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap; position: relative; overflow: hidden;
+    transition: box-shadow 0.3s, opacity 0.6s ease, transform 0.6s ease;
+  }
+  .apply-section::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at top right, rgba(232,93,38,0.15) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .apply-section:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.2); }
+  .apply-section.reveal { opacity: 0; transform: translateY(20px); }
+  .apply-section.reveal.visible { opacity: 1; transform: translateY(0); }
+  .apply-left h3 { font-size: 20px; font-weight: 900; color: var(--white); margin-bottom: 8px; }
+  .apply-left p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.9; }
+  .apply-right { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; position: relative; z-index: 1; }
+  .apply-btn { display: inline-block; background: var(--primary); color: white; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 700; padding: 13px 26px; border-radius: 100px; text-decoration: none; letter-spacing: 0.5px; white-space: nowrap; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; }
+  .apply-btn:hover { background: #ff6b35; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(232,93,38,0.45); }
+  .apply-secondary { display: inline-block; color: rgba(255,255,255,0.4); font-family: 'DM Sans', sans-serif; font-size: 11px; padding: 10px 18px; border-radius: 100px; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); white-space: nowrap; transition: border-color 0.2s, color 0.2s; }
+  .apply-secondary:hover { border-color: var(--primary-border); color: var(--primary); }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .contact-card { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; transition: border-color 0.2s, transform 0.2s; }
+  .contact-card:hover { border-color: var(--primary-border); transform: translateY(-2px); }
+  .clabel { font-family: 'DM Sans', sans-serif; font-size: 10px; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 5px; }
+  .cvalue { font-size: 13px; font-weight: 700; color: var(--text); }
+  .csub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* NOTICE */
+  .notice-section { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 28px; margin-top: 12px; transition: opacity 0.6s ease, transform 0.6s ease; }
+  .notice-section.reveal { opacity: 0; transform: translateY(20px); }
+  .notice-section.reveal.visible { opacity: 1; transform: translateY(0); }
+  .notice-title { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+  .notice-section p { font-size: 12px; color: var(--muted); line-height: 1.9; margin-bottom: 5px; }
+  .notice-section p:last-child { margin-bottom: 0; }
+  .divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+  footer { text-align: center; padding: 28px 20px; font-family: 'DM Sans', sans-serif; font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); background: var(--white); letter-spacing: 0.5px; }
+
+  @media(max-width:520px) {
+    .role-grid{grid-template-columns:1fr;} .contact-grid{grid-template-columns:1fr;}
+    .stats-bar{grid-template-columns:1fr;} .section{padding:20px 16px;}
+    .apply-section{flex-direction:column;padding:28px 20px;} .apply-right{align-items:flex-start;}
+    .hero-inner{padding:0 20px;} .hero-stats{margin:0;} .hstat{padding:18px 16px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-brand">JOB<span>&</span>CAREER</div>
+  <div class="topbar-right">Exclusive Offer</div>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-offer"><div class="offer-dot"></div> 마스타자동차 × 잡앤커리어</div>
+    <div class="hero-company">마스타자동차 고객센터</div>
+    <h1>CS 교육강사<br><em>채용안내</em></h1>
+    <p class="hero-sub">전국 1,500개 가맹 네트워크를 보유한 국내 최대 자동차 정비 기업<br>마스타자동차 고객센터에서 교육을 설계하고 이끌어갈 분을 찾습니다</p>
+    <div class="hero-tags">
+      <span class="htag primary">파견직</span>
+      <span class="htag outline">CS 교육강사</span>
+      <span class="htag">서울 서초구</span>
+      <span class="htag">교대역 · 고속터미널역</span>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat">
+      <div class="hstat-num"><span class="count-num" data-target="1500" data-suffix="+">1,500+</span></div>
+      <div class="hstat-label">전국 가맹점</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num"><span class="count-num" data-target="150" data-suffix="+">150+</span></div>
+      <div class="hstat-label">제휴 기업</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num"><span class="count-num" data-target="150" data-suffix="명">150명</span></div>
+      <div class="hstat-label">상담 인력 규모</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ABOUT -->
+  <div class="section">
+    <div class="sec-header"><span class="sec-num">01</span><span class="sec-title">회사 소개</span></div>
+    <p class="about-text"><strong>마스타자동차</strong>는 국내 최초 자동차 정비 프랜차이즈 기업으로, 전국 1,500여 개 가맹 정비 네트워크를 기반으로 한 종합 모빌리티 서비스 기업입니다. 경찰청·국방부·쿠팡·신한카드 등 150여 개 기업 제휴를 통해 정비 서비스를 제공하고 있으며, 렌터카·전기차·호텔·외식 사업으로 확장 중입니다.</p>
+    <div class="stats-bar">
+      <div class="stat"><div class="stat-num"><span class="count-num" data-target="1500" data-suffix="+">1,500+</span></div><div class="stat-label">전국 가맹점</div></div>
+      <div class="stat"><div class="stat-num"><span class="count-num" data-target="150" data-suffix="+">150+</span></div><div class="stat-label">제휴 기업</div></div>
+      <div class="stat"><div class="stat-num"><span class="count-num" data-target="150" data-suffix="명">150명</span></div><div class="stat-label">상담 인력</div></div>
+    </div>
+  </div>
+
+  <!-- DETAILS -->
+  <div class="section">
+    <div class="sec-header"><span class="sec-num">02</span><span class="sec-title">모집 개요</span></div>
+    <table class="info-table">
+      <tr><td>포지션</td><td><strong>CS 교육강사</strong></td></tr>
+      <tr><td>고용형태</td><td>파견직</td></tr>
+      <tr><td>근무지</td><td>서울 서초구 <span style="color:var(--muted);font-size:12px;">(교대역 · 고속터미널역 · 사평역)</span></td></tr>
+      <tr><td>근무시간</td><td>주 5일 (월~금) 09:00 ~ 18:00</td></tr>
+      <tr><td>급여</td><td>협의 <span style="color:var(--muted);font-size:12px;">※ 희망연봉 반드시 기재</span></td></tr>
+    </table>
+  </div>
+
+  <!-- WHAT YOU'LL DO -->
+  <div class="section">
+    <div class="sec-header"><span class="sec-num">03</span><span class="sec-title">주요 업무</span></div>
+    <div class="role-grid">
+      <div class="role-card">
+        <div class="role-icon">교육 설계</div>
+        <h4>인바운드 상담사 교육</h4>
+        <p>고장접수·관제·사고·수입차 등 분야별 교육 설계 및 진행</p>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">콘텐츠</div>
+        <h4>교재·교안 제작</h4>
+        <p>업무 매뉴얼·스크립트 등 교육 콘텐츠 기획 및 제작</p>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">운영</div>
+        <h4>신규·보수교육 운영</h4>
+        <p>교육 효과 분석 및 코칭, 교육 일정 기획·운영</p>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">품질관리</div>
+        <h4>QA 모니터링·평가</h4>
+        <p>인·아웃바운드 품질 모니터링, 평가 및 리포트 작성</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- REQUIREMENTS -->
+  <div class="section">
+    <div class="sec-header"><span class="sec-num">04</span><span class="sec-title">자격 요건</span></div>
+    <div class="req-box">
+      <ul>
+        <li>콜센터 상담사 교육 및 QA 관련 업무 경력</li>
+        <li>교육·교재 콘텐츠 기획 및 제작 경험</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- NEXT STEP -->
+  <div class="section">
+    <div class="sec-header"><span class="sec-num">05</span><span class="sec-title">지원 절차</span></div>
+    <div class="next-wrap">
+      <p>관심 있으시면 아래 <strong>두 가지</strong>만 회신 부탁드립니다</p>
+      <div class="next-item"><div class="next-num">1</div><div>면접 가능 일정 <span style="color:var(--muted);">(예: ○/○(수) 오전, 오후)</span></div></div>
+      <div class="next-item"><div class="next-num">2</div><div>희망연봉 및 출근 가능일</div></div>
+      <p style="margin-top:14px;color:var(--muted);font-size:12px;">입사지원서 양식 작성 후 송부해 주시면, 확인 후 상세 전형 절차를 안내드리겠습니다.</p>
+    </div>
+  </div>
+
+  <!-- APPLY -->
+  <div class="apply-section">
+    <div class="apply-left">
+      <h3>지원하기</h3>
+      <p>개인 이력서 또는 입사지원서 다운로드 후<br>작성하여 이메일로 제출해 주세요<br>
+      <span style="font-size:11px;">※ 희망연봉 및 면접 가능일 반드시 기재</span></p>
+    </div>
+    <div class="apply-right">
+      <a class="apply-btn" href="https://drive.google.com/uc?export=download&id=1Co8OQ0_4vqmBeIyiM0fo2v3GA6tT8YJM" target="_blank">입사지원서 다운로드</a>
+      <a class="apply-secondary" href="mailto:jobnc@jobnc.co.kr">이력서 제출 · jobnc@jobnc.co.kr</a>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="section">
+    <div class="sec-header"><span class="sec-num">06</span><span class="sec-title">문의처</span></div>
+    <div class="contact-grid">
+      <div class="contact-card"><div class="clabel">담당자</div><div class="cvalue">잡앤커리어</div><div class="csub">HR사업본부</div></div>
+      <div class="contact-card"><div class="clabel">이메일</div><div class="cvalue">jobnc@jobnc.co.kr</div></div>
+      <div class="contact-card"><div class="clabel">문의 전화 1</div><div class="cvalue">010-5716-3459</div></div>
+      <div class="contact-card"><div class="clabel">문의 전화 2</div><div class="cvalue">010-5742-4378</div></div>
+    </div>
+  </div>
+
+  <!-- 유의사항 -->
+  <div class="notice-section">
+    <div class="notice-title">유의사항 및 안내</div>
+    <p>• 상기 급여 및 복리후생 등의 채용 조건은 회사 사유에 의해 변경될 수 있습니다.</p>
+    <p>• 당사는 채용 합격 이전에 <strong style="color:var(--text);">계좌번호, 주민등록등본</strong> 제출을 요청하지 않습니다.</p>
+    <p>• 제출한 채용 관련 서류는 채용 여부가 확정된 이후 14일 안에 요청 시 반환 또는 폐기해드립니다.</p>
+    <p>• 기재한 개인정보는 입사 시 인사업무 외 다른 용도로 사용되지 않으며, 지원하신 이력서는 채용 추천을 위해 잡앤커리어 내부 데이터베이스에 저장됩니다.</p>
+    <p>• 채용 추천 비동의 시 인재채용팀으로 연락 부탁드립니다.</p>
+    <p>• 서류전형 합격자 발표 및 면접 전형은 입사지원 시 기입한 연락처로 개별 통보(문자 또는 유선)하며, 전형 방법 및 일정은 업체 사정에 따라 변경될 수 있습니다.</p>
+    <p>• 응시 분야에 적격자가 없는 경우 채용하지 않을 수 있습니다.</p>
+    <div class="divider"></div>
+    <div class="notice-title">개인정보 보호 및 활용 동의</div>
+    <p>본 채용건에 최종 제출하신 입사지원서 상의 개인정보는 개인정보 보호법에 의거하여 당사 상시 채용을 위한 용도로만 사용됩니다. 입사지원서 제출 시 당사의 상시 채용 전형 과정에서의 개인정보 활용에 동의한 것으로 간주됩니다.</p>
+    <p>모든 채용 절차는 취업규칙, 근로기준법 및 관련 법규에 따라 진행되고 있으며, 채용절차의 공정화에 관한 법률 제11조 및 개인정보보호법 제21조에 따라 채용 서류의 반환 및 개인정보가 불필요하게 되었을 때는 지체없이 파기합니다.</p>
+    <div class="divider"></div>
+    <div class="notice-title">채용 서류 반환 안내</div>
+    <p>본 고지는 채용절차의 공정화에 관한 법률 제11조 제5항에 따른 것으로, 최종합격이 되지 못한 구직자는 최종합격 발표일로부터 <strong style="color:var(--text);">180일 이내</strong>에 제출한 채용 서류의 반환을 청구할 수 있습니다.</p>
+    <p>단, 홈페이지 또는 전자우편으로 제출된 경우나 지원자가 자발적으로 제출한 경우는 제외됩니다. 반환 청구를 원하시는 지원자는 인사팀에 문의주시면 절차를 안내드립니다.</p>
+    <p>최종합격 발표일로부터 180일까지 채용 서류를 보관하며, 해당 기간 내 반환 청구가 없을 경우 개인정보보호법에 따라 지체없이 일체를 파기할 예정입니다.</p>
+  </div>
+
+</div>
+
+<footer>© 잡앤커리어 HR사업본부 &nbsp;|&nbsp; jobnc@jobnc.co.kr &nbsp;|&nbsp; 010-5716-3459 / 010-5742-4378</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.section, .apply-section, .notice-section').forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.getAttribute('data-target'));
+          const suffix = el.getAttribute('data-suffix');
+          let current = 0;
+          const step = Math.ceil(target / 50);
+          const timer = setInterval(() => {
+            current = Math.min(current + step, target);
+            el.textContent = current.toLocaleString() + suffix;
+            if (current >= target) clearInterval(timer);
+          }, 28);
+          countObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.count-num').forEach(el => countObserver.observe(el));
+  });
+</script>
+
+</body>
+</html>
