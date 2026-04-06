@@ -381,8 +381,8 @@
       <span style="font-size:11px;">※ 희망연봉 및 면접 가능일 반드시 기재</span></p>
     </div>
     <div class="apply-right">
-      <a class="apply-btn" href="https://drive.google.com/uc?export=download&id=1Co8OQ0_4vqmBeIyiM0fo2v3GA6tT8YJM" target="_blank">입사지원서 다운로드</a>
-      <a class="apply-secondary" href="mailto:jobnc@jobnc.co.kr">이력서 제출 · jobnc@jobnc.co.kr</a>
+      <a class="apply-btn" href="https://drive.google.com/uc?export=download&id=1DqVjvPwnLeVaxb5cqVO_UbxGRBb54X5e" target="_blank">입사지원서 다운로드</a>
+      <a class="apply-secondary" href="/cdn-cgi/l/email-protection#dab0b5b8b4b99ab0b5b8b4b9f4b9b5f4b1a8">이력서 제출 · <span class="__cf_email__" data-cfemail="2f45404d414c6f45404d414c014c4001445d">[email&#160;protected]</span></a>
     </div>
   </div>
 
@@ -423,21 +423,23 @@
 <footer>© 잡앤커리어 HR사업본부 &nbsp;|&nbsp; jobnc@jobnc.co.kr &nbsp;|&nbsp; 010-5716-3459 / 010-5742-4378</footer>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 60);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.08 });
-
   document.addEventListener('DOMContentLoaded', () => {
+    // 스크롤 reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
     document.querySelectorAll('.section, .apply-section, .notice-section').forEach(el => {
       el.classList.add('reveal');
       observer.observe(el);
     });
 
+    // 카운트업
     const countObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -455,6 +457,7 @@
         }
       });
     }, { threshold: 0.5 });
+
     document.querySelectorAll('.count-num').forEach(el => countObserver.observe(el));
   });
 </script>
